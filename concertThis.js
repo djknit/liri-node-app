@@ -4,12 +4,15 @@ const request = require("request");
 //  The 'moment' module is used to interpret, manipulate, and format dates and times.
 const moment = require("moment");
 
+// Import the api keys from 'keys.js'
+const keys = require("./keys.js");
+
 // Function to run when the concert-this command is passed
 function run(searchTerm) {
     // If an artist/band name was given...
     if (searchTerm) {
         // Create the query URL for the Bandsintown API using the provided artist (searchTerm).
-        const queryURL = `https://rest.bandsintown.com/artists/${searchTerm}/events?app_id=codingbootcamp`;
+        const queryURL = `https://rest.bandsintown.com/artists/${searchTerm}/events?app_id=${keys.bandsInTown.id}`;
         // Query the Bandsintown API
         request(queryURL, function (error, response, body) {
             // Declare a string to hold information returned from the search (begin the string by stating the search being ran).
@@ -20,9 +23,9 @@ function run(searchTerm) {
             }
             // If the search returned a body...
             else if (body) {
-                // If the body is an array...
+                // And the body is an array...
                 if (body[0] === "[") {
-                    // If the array is empty...
+                    // And the array is empty...
                     if (body[1] === "]") {
                         // This means that the artist was found, but no events were found. Add a message to the resultsString stating this.
                         resultsString += " Sorry, I couldn't find any scheduled events for that artist.";
@@ -32,14 +35,14 @@ function run(searchTerm) {
                         // Parse the returned body (currently a string representing an array of objects) into the array it represents.
                         let parsedBody = JSON.parse(body);
                         // Add the number of results to the resultsString.
-                        resultsString += " (" + parsedBody.length + " results)"
+                        resultsString += "     (" + parsedBody.length + " results)"
                         // For each event object in the body array, add the relevant info to the results string.
                         parsedBody.forEach(function(event, index) {
-                            // Create head divider that includes the result number.
+                            // Create head divider string that includes the result number.
                             //  The number of '-'s will differ depending on the number of digits in (index + 1) so as to keep the line the same number of characters.
                             let headDivider = "\n -< " + (index + 1) + " >" + "-".repeat(30);
                             if (index < 9) { headDivider += "-"; }
-                            // Create a string with the desired pieces of the event info if they are defined.
+                            // Create a string with the desired pieces of the event info if they are defined. (The function is defined @line 75.)
                             let eventString = createConcertInfoString(event);
                             // Add the head divider and the event string to the results string.
                             resultsString += headDivider + eventString;
@@ -51,6 +54,12 @@ function run(searchTerm) {
                     // This means that the artist was not found. Add a message to 'resultsString' stating this.
                     resultsString += " Sorry, I'm not familiar with that artist.";
                 }
+            }
+            // If there was no error returned and the response body is empty...
+            //   (I don't think this is possible, but this covers all of the cases just in case.)
+            else {
+                // Notify the user.
+                resultsString += " There was an error searching the API:\n  No response body.";
             }
             // Print the results.
             console.log(resultsString);
@@ -85,7 +94,7 @@ function createConcertInfoString(event) {
     }
     // Use 'moment' to parse and format the datetime of the event and add it to the 'result' string if it is defined.
     if (event.datetime) {
-        result += "\n  Time: " + moment(event.datetime).format("ddd, MMM D, YYYY,  hh:mm a");
+        result += "\n  Date: " + moment(event.datetime).format("MM/DD/YYYY  (ddd., hh:mm a)");
     }
     return result;
 }

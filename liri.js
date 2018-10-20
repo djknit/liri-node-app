@@ -1,39 +1,23 @@
-// Require the Node modules (packages) needed for the app. This is a necessary step to be able to use the modules.
-//  The 'request' module is used to get data from web pages using an HTTP call.
-const request = require("request");
-//  The Spotify API module is used to query the Spotify REST API.
-const Spotify = require("node-spotify-api");
+// Require the Node modules (packages) needed for this portion of the app. This is a necessary step to be able to use the modules.
 //  The 'dontenv' module grabs the data (key-value pairs) from the '.env' file and stores them in the global variable 'process.env'
 //   Here, I am both requiring and configuring the module. It is not stored in a variable because it does not need to be called again.
 require("dotenv").config();
 
 // Import the api keys from 'keys.js'
 const keys = require("./keys.js");
-// Import the files containing the functions for each command.
+// Import the functions for each command from their respective JS files.
 const concertThis = require("./concertThis.js");
-
-// Create the spotify object needed for performing the Spotify API queries using the keys imported from 'keys.js'
-const spotify = new Spotify(keys.spotify);
+const spotifyThisSong = require("./spotifyThisSong.js");
 
 // Grab the command that was passed in when the program was called. (The calls have the form "node liri.js <command> ...", so the command is index 2 of the arguments array.)
 let command = process.argv[2];
 // If a command was passed, turn any uppercase letters in the passed command to lowercase to make the interpretation a little more forgiving.
 if (command) { command = command.toLowerCase(); }
 
-// Grab the search term if one was passed.
-//  Declare a variable to store the search term
-let searchTerm = null;
-//  Grab portion of the arguments array that excludes "node liri.js <command here>"
-let searchTermArray = process.argv.slice(3);
-//  If the searchTermArray is not empty, build a string from the array.
-if (searchTermArray.length > 0) {
-    searchTerm = "";
-    searchTermArray.forEach(function(value, index) {
-        if (index > 0) { searchTerm = searchTerm + " "; }
-        searchTerm = searchTerm + value;
-    });
-    console.log(searchTerm);
-}
+// Grab the search term if one was passed. (This is the portion of the arguments array that excludes "node liri.js <command here>".)
+//  In the same line, join words in the array into a string with the words separated by single spaces.
+//  If there was no search term passed, 'searchTerm' will be set to the empty string (a falsey value).
+let searchTerm = process.argv.slice(3).join(" ");
 
 // Create a message to display when the command entered does not match any of the expected commands
 const INVALID_COMMAND_MESSAGE = `
@@ -49,14 +33,15 @@ switch (command) {
         concertThis.run(searchTerm);
         break;
     case "spotify-this-song":
-        spotifyThisSong();
+        spotifyThisSong.run(searchTerm);
         break;
     case "movie-this":
-        movieThis();
+        movieThis.run(searchTerm);
         break;
     case "do-what-it-says":
-        doWhatItSays();
+        doWhatItSays.run();
         break;
+    // If none of the above commands were entered...
     default:
         console.log(INVALID_COMMAND_MESSAGE);
 }
