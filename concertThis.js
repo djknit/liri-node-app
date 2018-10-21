@@ -7,7 +7,7 @@ const moment = require("moment");
 // Import the api keys from 'keys.js'
 const keys = require("./keys.js");
 
-// Function to run when the concert-this command is passed
+// Function to run when the 'concert-this' command is passed
 function run(searchTerm) {
     // If an artist/band name was given...
     if (searchTerm) {
@@ -16,7 +16,7 @@ function run(searchTerm) {
         // Query the Bandsintown API
         request(queryURL, function (error, response, body) {
             // Declare a string to hold information returned from the search (begin the string by stating the search being ran).
-            let resultsString = "-".repeat(45) + "\nnode liri.js concert-this " + searchTerm + "\n" + " -".repeat(12) + "\n";
+            let resultsString = "-".repeat(45) + "\n[node liri.js concert-this " + searchTerm + "]\n" + " -".repeat(18) + "\n";
             // If there was an error with the search, add a message stating this to the resultsString.
             if (error) {
                 resultsString += " There was an error searching the API:\n" + error;

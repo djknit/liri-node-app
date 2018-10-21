@@ -8,6 +8,8 @@ const keys = require("./keys.js");
 // Import the functions for each command from their respective JS files.
 const concertThis = require("./concertThis.js");
 const spotifyThisSong = require("./spotifyThisSong.js");
+const movieThis = require("./movieThis.js");
+const doWhatItSays = require("./doWhatItSays.js")
 
 // Grab the command that was passed in when the program was called. (The calls have the form "node liri.js <command> ...", so the command is index 2 of the arguments array.)
 let command = process.argv[2];
