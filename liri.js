@@ -30,20 +30,25 @@ Sorry, I didn't recognize that command. Please enter a command in one of the fol
    node liri.js do-what-it-says`;
 
 // Determine which command was passed and take the appropriate action.
-switch (command) {
-    case "concert-this":
-        concertThis.run(searchTerm);
-        break;
-    case "spotify-this-song":
-        spotifyThisSong.run(searchTerm);
-        break;
-    case "movie-this":
-        movieThis.run(searchTerm);
-        break;
-    case "do-what-it-says":
-        doWhatItSays.run();
-        break;
-    // If none of the above commands were entered...
-    default:
-        console.log(INVALID_COMMAND_MESSAGE);
+doThis(command, searchTerm);
+
+// Function for determining which command was passed and taking the appropriate action
+function doThis(command, searchTerm) {
+    switch (command) {
+        case "concert-this":
+            concertThis.run(searchTerm);
+            break;
+        case "spotify-this-song":
+            spotifyThisSong.run(searchTerm);
+            break;
+        case "movie-this":
+            movieThis.run(searchTerm);
+            break;
+        case "do-what-it-says":
+            doWhatItSays.run(doThis);
+            break;
+        // If none of the above commands were entered...
+        default:
+            console.log(INVALID_COMMAND_MESSAGE);
+    }
 }

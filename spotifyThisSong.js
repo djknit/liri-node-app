@@ -4,8 +4,10 @@ const request = require("request");
 //  The Spotify API module is used to query the Spotify REST API.
 const Spotify = require("node-spotify-api");
 
-// Import the api keys from 'keys.js'
+// Import the api keys from 'keys.js'.
 const keys = require("./keys.js");
+// Import the function for reporting the results from 'output.js'.
+const output = require("./output.js")
 
 // Create the spotify object needed for performing the Spotify API queries using the keys imported from 'keys.js'
 const spotify = new Spotify(keys.spotify);
@@ -25,11 +27,6 @@ function run(searchTerm) {
         // Search the Spotify API for the song "The Sign" by 'Ace of Base'.
         search("the sign ace of base", resultsString);
     }
-}
-
-// Export the run function so it can be used in the liri.js app.
-module.exports = {
-    run
 }
 
 // Function for searching the Spotify API
@@ -63,19 +60,24 @@ function search(searchTerm, resultsString) {
             songInfoString += response.tracks.items[0].album && response.tracks.items[0].album.name ? "\n  Album: " + response.tracks.items[0].album.name : "";
             // Add the song information string to the 'resultsString'.
             resultsString += songInfoString;
-
-
         }
         // If an empty array was returned (no song found matching search)...
         else {
             // Add a message informing user that no results were found to the 'resultsString'.
             resultsString += "\n I'm sorry, I couldn't find that song."
         }
-        // Print the 'resultsString' to the console.
-        console.log(resultsString);
+        // Report the results (to both console and log.txt).
+        output.report(resultsString);
     // If the Spotify API search returned an error...
     }).catch(function(error) {
         // Add a message about the error to the 'resultsString'
-        resultsString += ""
+        resultsString += "\n There was an error searching Spotify.\n" + error;
+        // Report the results (to both console and log.txt).
+        output.report(resultsString);
     });
+}
+
+// Export the run function so it can be used in the liri.js app.
+module.exports = {
+    run
 }

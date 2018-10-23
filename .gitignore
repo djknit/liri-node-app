@@ -1,3 +1,6 @@
+# Prevent the following from being pushed to the Github repository.
 node_modules
 .DS_Store
+
 .env
+log.txt

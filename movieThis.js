@@ -4,6 +4,8 @@ const request = require("request");
 
 // Import the api keys from 'keys.js'
 const keys = require("./keys.js");
+// Import the function for reporting the results from 'output.js'.
+const output = require("./output.js")
 
 // Function to run when the 'movie-this' command is passed
 function run(searchTerm) {
@@ -47,8 +49,8 @@ function search(searchTerm, resultsString) {
                 resultsString += " Sorry, I couldn't find that movie.";
             }
         }
-        // Print the results.
-        console.log(resultsString);
+        // Report the results (to both console and log.txt).
+        output.report(resultsString);
     });
 }
 

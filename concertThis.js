@@ -6,6 +6,8 @@ const moment = require("moment");
 
 // Import the api keys from 'keys.js'
 const keys = require("./keys.js");
+// Import the function for reporting the results from 'output.js'.
+const output = require("./output.js")
 
 // Function to run when the 'concert-this' command is passed
 function run(searchTerm) {
@@ -61,8 +63,8 @@ function run(searchTerm) {
                 // Notify the user.
                 resultsString += " There was an error searching the API:\n  No response body.";
             }
-            // Print the results.
-            console.log(resultsString);
+            // Report the results (to both console and log.txt).
+            output.report(resultsString);
         });
     }
     // If no artist/band was given, alert the user that they must provide an artist/band name.
