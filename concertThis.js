@@ -16,7 +16,7 @@ function run(searchTerm) {
         // Query the Bandsintown API
         request(queryURL, function (error, response, body) {
             // Declare a string to hold information returned from the search (begin the string by stating the search being ran).
-            let resultsString = "-".repeat(45) + "\n[node liri.js concert-this " + searchTerm + "]\n" + " -".repeat(18) + "\n";
+            let resultsString = "-".repeat(45) + '\nnode liri.js {concert-this} "' + searchTerm + '"\n' + " -".repeat(18) + "\n";
             // If there was an error with the search, add a message stating this to the resultsString.
             if (error) {
                 resultsString += " There was an error searching the API:\n" + error;
@@ -35,7 +35,7 @@ function run(searchTerm) {
                         // Parse the returned body (currently a string representing an array of objects) into the array it represents.
                         let parsedBody = JSON.parse(body);
                         // Add the number of results to the resultsString.
-                        resultsString += "     (" + parsedBody.length + " results)"
+                        resultsString += " I found " + parsedBody.length + " scheduled events for that artist.";
                         // For each event object in the body array, add the relevant info to the results string.
                         parsedBody.forEach(function(event, index) {
                             // Create head divider string that includes the result number.
