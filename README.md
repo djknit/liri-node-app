@@ -1,10 +1,17 @@
 # LIRI Node App
 
-##### LIRI is a command-line node app that can accept commands to search and return data from Spotify, Bands in Town, and OMDB.
+### LIRI is a command-line node app that can accept commands to search and return data from Spotify, Bands in Town, and OMDB.
+
+## Contents
+* [Demo Videos](#-demo-videos)
+* [Project Goals](#-project-goals)
+* [Project Features](#-project-features)
+* [Instructions for Use](#-instructions-for-use)
+* [Developer](#-developer)
 
 ## Demo Videos
-* For a full demonstration of the app, see [this video](https://www.youtube.com/watch?v=GGi05Dj_tzY) (3 min, 25 sec)
-* For a very brief demonstration of the app, see [this video](https://www.youtube.com/watch?v=Ork3psUDaNM) (1 min, 6 sec)
+* For a full demonstration of the app, see [this video](https://www.youtube.com/watch?v=GGi05Dj_tzY) (3 min, 25 sec).
+* For a very brief demonstration of the app, see [this video](https://www.youtube.com/watch?v=Ork3psUDaNM) (1 min, 6 sec).
 
 ## Project Goals
 * Create a command line Node app that can interpret and execute commands passed by the user.
@@ -31,9 +38,9 @@
 
 ## Instructions for Use
 #### Building the App
-If you want to try this app out for yourself, you will have to register your own keys for Bandsintown, Spotify, and OMDB. Once you have your keys, you will need to clone the repository to your local machine. You will need to have Node installed on your machine. Navigate to the directory that you cloned the repository to in the console and initialize Node by running 
+If you want to try this app out for yourself, you will have to register your own keys for Bandsintown, Spotify, and OMDB. Once you have your keys, you will need to clone the repository to your local machine. You will need to have Node installed on your machine. Navigate to the directory that you cloned the repository to in the console and install the Node modules required for the app by running the command
 ```
-npm init -y
+npm i
 ```
 Next, you will need to create a new file in the same directory called '.env'. (Do not put anything in front of the '.' The filename should be '.env' exactly). Inside your '.env' file, copy and paste the following.
 ```
@@ -55,3 +62,20 @@ BANDSINTOWN_APP_ID=your_key_here
 OMDB_API_KEY=your_key_here
 ```
 Replace the text "your_key_here" with your keys for each occurrance. That's it! You should be ready to run the app.
+
+#### Running the App
+Open the command terminal and make sure that you have navigated to the directory where you have cloned the app. LIRI can accept any of the following commands.
+* `node liri.js concert-this <band name here>`
+* `node liri.js spotify-this-song <song name here>`
+* `node liri.js movie-this <movie name here>`
+* `node liri.js do-what-it-says`
+
+For a description of what each command is doing, see [Features](#-project-features). The results of each search will be printed to the terminal and appended to the file 'log.txt'.
+
+## Developer
+This project is developed and maintained by David Knittel. Any and all questions, comments, suggestions, or proposed contributions are welcome.
+* [Email me (djknit@gmail.com)](mailto:djknit@gmail.com)
+* Visit my [webpage](https://djknit.github.io) or go directly to my [portfolio](https://djknit.github.io/portfolio.html)
+* Visit my [GitHub profile](https://github.com/djknit)
+* Visit my [LinkedIn page](https://www.linkedin.com/in/djknit/)
+This project was originally developed as a homework assignment for the KU Coding Bootcamp Full Stack Flex program and uses specifications laid out by the homework requirements.
