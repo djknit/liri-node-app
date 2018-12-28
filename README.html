@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+	font-size: 14px;
+	padding: 0 12px;
+	line-height: 22px;
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	color: #4080D0;
+	text-decoration: none;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+	font-size: inherit;
+	line-height: auto;
+}
+
+a:hover {
+	color: #4080D0;
+	text-decoration: underline;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left: 5px solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+.mac code {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+/** Theming */
+
+.vscode-light,
+.vscode-light pre code {
+	color: rgb(30, 30, 30);
+}
+
+.vscode-dark,
+.vscode-dark pre code {
+	color: #DDD;
+}
+
+.vscode-high-contrast,
+.vscode-high-contrast pre code {
+	color: white;
+}
+
+.vscode-light code {
+	color: #A31515;
+}
+
+.vscode-dark code {
+	color: #D7BA7D;
+}
+
+.vscode-light pre:not(.hljs),
+.vscode-light code > div {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre:not(.hljs),
+.vscode-dark code > div {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre:not(.hljs),
+.vscode-high-contrast code > div {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+.vscode-light blockquote,
+.vscode-dark blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.vscode-high-contrast blockquote {
+	background: transparent;
+	border-color: #fff;
+}
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family:  "Meiryo", "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+</head>
+<body>
+<h1 id="liri-node-app">LIRI Node App</h1>
+<h3 id="liri-is-a-command-line-node-app-that-can-accept-commands-to-search-and-return-data-from-spotify-bands-in-town-and-omdb">LIRI is a command-line node app that can accept commands to search and return data from Spotify, Bands in Town, and OMDB.</h3>
+<h2 id="contents">Contents</h2>
+<ul>
+<li><a href="#links">Links</a></li>
+<li><a href="#project-goals">Project Goals</a></li>
+<li><a href="#project-features">Project Features</a></li>
+<li><a href="#instructions-for-use">Instructions for Use</a></li>
+<li><a href="#technologies-used">Technologies Used</a></li>
+<li><a href="#developer">Developer</a></li>
+</ul>
+<h2 id="links">Links</h2>
+<ul>
+<li>GitHub Repository: <a href="https://github.com/djknit/liri-node-app">github.com/djknit/liri-node-app</a></li>
+</ul>
+<h4 id="demo-videos">Demo Videos</h4>
+<ul>
+<li>For a full demonstration of the app, see <a href="https://www.youtube.com/watch?v=GGi05Dj_tzY">this video</a> (3 min, 25 sec).</li>
+<li>For a very brief demonstration of the app, see <a href="https://www.youtube.com/watch?v=Ork3psUDaNM">this video</a> (1 min, 6 sec).</li>
+</ul>
+<h2 id="project-goals">Project Goals</h2>
+<ul>
+<li>Create a command line Node app that can interpret and execute commands passed by the user.</li>
+<li>Include commands to do the following.
+<ul>
+<li>Search Bandsintown for concerts featuring a given artist.</li>
+<li>Search Spotify for information about a given song.</li>
+<li>Search OMDB for information about a given movie.</li>
+</ul>
+</li>
+<li>Output results to the console and log the commands and results to a text file.</li>
+<li>Protect API keys by placing them in a '.env' file and telling Git to ignore said file.</li>
+<li>Practice working with Node modules, working with the Node Package Manager, and creating a modular Node App.</li>
+</ul>
+<h2 id="project-features">Project Features</h2>
+<ul>
+<li>Parses command-line input and runs the function corresponding to the command that was passed.</li>
+<li>When the 'concert-this' command is passed:
+<ul>
+<li>If a search term (artist name) was passed with the command, LIRI queries the Bandsintown API to find scheduled concerts for the artist and reports the findings.</li>
+</ul>
+</li>
+<li>When the 'spotify-this-song' command is passed:
+<ul>
+<li>If a search term (song name) was passed with the command, LIRI queries Spotify for information about the song and reports the findings.</li>
+<li>If no search term was passed with the command, LIRI queries Spotify for information about the song 'The Sign' by 'Ace of Base' and reports the findings.</li>
+</ul>
+</li>
+<li>When the 'movie-this' command is passed:
+<ul>
+<li>If a search term (movie name) was passed with the command, LIRI queries OMDB for information about the movie and reports the findings.</li>
+<li>If no search term was passed with the command, LIRI queries OMDB for information about the movie 'Mr. Nobody and reports the findings.</li>
+</ul>
+</li>
+<li>When the 'do-what-it-says' command is passed, LIRI reads the text in 'random.txt' and executes the command stated in the text.</li>
+<li>All results are printed in the console and appended to the file 'log.txt'.</li>
+</ul>
+<h2 id="instructions-for-use">Instructions for Use</h2>
+<h4 id="building-the-app">Building the App</h4>
+<p>If you want to try this app out for yourself, you will have to register your own keys for Bandsintown, Spotify, and OMDB. Once you have your keys, you will need to clone the repository to your local machine. You will need to have Node installed on your machine. Navigate to the directory that you cloned the repository to in the console and install the Node modules required for the app by running the command</p>
+<pre class="hljs"><code><div>npm i
+</div></code></pre>
+<p>Next, you will need to create a new file in the same directory called '.env'. (Do not put anything in front of the '.' The filename should be '.env' exactly). Inside your '.env' file, copy and paste the following.</p>
+<pre class="hljs"><code><div># API keys
+
+### Spotify
+
+SPOTIFY_ID=your_key_here
+SPOTIFY_SECRET=your_key_here
+
+
+### Bandsintown
+
+BANDSINTOWN_APP_ID=your_key_here
+
+
+### OMDB
+
+OMDB_API_KEY=your_key_here
+</div></code></pre>
+<p>Replace the text &quot;your_key_here&quot; with your keys for each occurrance. That's it! You should be ready to run the app.</p>
+<h4 id="running-the-app">Running the App</h4>
+<p>Open the command terminal and make sure that you have navigated to the directory where you have cloned the app. LIRI can accept any of the following commands.</p>
+<ul>
+<li><code>node liri.js concert-this &lt;band name here&gt;</code></li>
+<li><code>node liri.js spotify-this-song &lt;song name here&gt;</code></li>
+<li><code>node liri.js movie-this &lt;movie name here&gt;</code></li>
+<li><code>node liri.js do-what-it-says</code></li>
+</ul>
+<p>For a description of what each command is doing, see <a href="#project-features">Features</a>. The results of each search will be printed to the terminal and appended to the file 'log.txt'.</p>
+<h2 id="technologies-used">Technologies Used</h2>
+<h2 id="developer">Developer</h2>
+<p>This project is developed and maintained by David Knittel. Any and all questions, comments, suggestions, or proposed contributions are welcome.</p>
+<ul>
+<li><a href="mailto:djknit@gmail.com">Email me (djknit@gmail.com)</a></li>
+<li>Visit my <a href="https://djknit.github.io">webpage</a> or go directly to my <a href="https://djknit.github.io/portfolio.html">portfolio</a></li>
+<li>Visit my <a href="https://github.com/djknit">GitHub profile</a></li>
+<li>Visit my <a href="https://www.linkedin.com/in/djknit/">LinkedIn page</a></li>
+</ul>
+<p>This project was originally developed as a homework assignment for the KU Coding Bootcamp Full Stack Flex program and uses specifications laid out by the homework requirements.</p>
+
+</body>
+</html>

@@ -3,13 +3,17 @@
 ### LIRI is a command-line node app that can accept commands to search and return data from Spotify, Bands in Town, and OMDB.
 
 ## Contents
-* [Demo Videos](#-demo-videos)
-* [Project Goals](#-project-goals)
-* [Project Features](#-project-features)
-* [Instructions for Use](#-instructions-for-use)
-* [Developer](#-developer)
+* [Links](#links)
+* [Project Goals](#project-goals)
+* [Project Features](#project-features)
+* [Instructions for Use](#instructions-for-use)
+* [Technologies Used](#technologies-used)
+* [Developer](#developer)
 
-## Demo Videos
+## Links
+* GitHub Repository: [github.com/djknit/liri-node-app](https://github.com/djknit/liri-node-app)
+
+#### Demo Videos
 * For a full demonstration of the app, see [this video](https://www.youtube.com/watch?v=GGi05Dj_tzY) (3 min, 25 sec).
 * For a very brief demonstration of the app, see [this video](https://www.youtube.com/watch?v=Ork3psUDaNM) (1 min, 6 sec).
 
@@ -70,12 +74,15 @@ Open the command terminal and make sure that you have navigated to the directory
 * `node liri.js movie-this <movie name here>`
 * `node liri.js do-what-it-says`
 
-For a description of what each command is doing, see [Features](#-project-features). The results of each search will be printed to the terminal and appended to the file 'log.txt'.
+For a description of what each command is doing, see [Features](#project-features). The results of each search will be printed to the terminal and appended to the file 'log.txt'.
+
+## Technologies Used
 
 ## Developer
 This project is developed and maintained by David Knittel. Any and all questions, comments, suggestions, or proposed contributions are welcome.
-* [Email me (djknit@gmail.com)](mailto:djknit@gmail.com)
-* Visit my [webpage](https://djknit.github.io) or go directly to my [portfolio](https://djknit.github.io/portfolio.html)
-* Visit my [GitHub profile](https://github.com/djknit)
-* Visit my [LinkedIn page](https://www.linkedin.com/in/djknit/)
+* Email: [djknit@gmail.com](mailto:djknit@gmail.com)
+* Portfolio: [djknit.github.io](https://djknit.github.io/)
+* GitHub: [github.com/djknit](https://github.com/djknit)
+* LinkedIn: [linkedin.com/in/djknit](https://www.linkedin.com/in/djknit/)
+
 This project was originally developed as a homework assignment for the KU Coding Bootcamp Full Stack Flex program and uses specifications laid out by the homework requirements.
