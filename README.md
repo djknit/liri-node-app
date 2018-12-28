@@ -6,8 +6,8 @@
 * [Links](#links)
 * [Project Goals](#project-goals)
 * [Project Features](#project-features)
-* [Instructions for Use](#instructions-for-use)
 * [Technologies Used](#technologies-used)
+* [Instructions for Use](#instructions-for-use)
 * [Developer](#developer)
 
 ## Links
@@ -39,6 +39,12 @@
     * If no search term was passed with the command, LIRI queries OMDB for information about the movie 'Mr. Nobody and reports the findings.
 * When the 'do-what-it-says' command is passed, LIRI reads the text in 'random.txt' and executes the command stated in the text.
 * All results are printed in the console and appended to the file 'log.txt'.
+
+## Technologies Used
+* Node
+* Request (Node package)
+* Moment (as a Node package)
+* Dotenv (Node package)
 
 ## Instructions for Use
 #### Building the App
@@ -75,8 +81,6 @@ Open the command terminal and make sure that you have navigated to the directory
 * `node liri.js do-what-it-says`
 
 For a description of what each command is doing, see [Features](#project-features). The results of each search will be printed to the terminal and appended to the file 'log.txt'.
-
-## Technologies Used
 
 ## Developer
 This project is developed and maintained by David Knittel. Any and all questions, comments, suggestions, or proposed contributions are welcome.
