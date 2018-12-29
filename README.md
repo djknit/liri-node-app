@@ -39,6 +39,7 @@
     * If no search term was passed with the command, LIRI queries OMDB for information about the movie 'Mr. Nobody and reports the findings.
 * When the 'do-what-it-says' command is passed, LIRI reads the text in 'random.txt' and executes the command stated in the text.
 * All results are printed in the console and appended to the file 'log.txt'.
+* All API keys are kept in a '.env' file which is not published to the repository so that the keys remain protected.
 
 ## Technologies Used
 * Node
